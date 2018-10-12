@@ -1,7 +1,8 @@
-//import org.camptocamp.dollop
+import org.camptocamp.dollop.initDsl
 
 def foo(currentbuild,String message){
-    echo "INFO : $message"
-    echo currentbuild.rawBuild.number.toString()
-
+    echo "INFO : $message";
+    echo currentbuild.toString();
+    def jobCreator = new initDsl(currentbuild);
+    jobCreator.installJobs();
 }
